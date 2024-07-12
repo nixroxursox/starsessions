@@ -14,6 +14,7 @@ Usage:
 
 Open http://localhost:8000 for demo page.
 """
+
 import datetime
 import json
 from starlette.applications import Starlette
@@ -23,7 +24,6 @@ from starlette.responses import HTMLResponse, RedirectResponse
 from starlette.routing import Route
 
 from starsessions import CookieStore, SessionAutoloadMiddleware, SessionMiddleware
-
 
 async def homepage(request: Request) -> HTMLResponse:
     """Access this view (GET "/") to display session contents."""

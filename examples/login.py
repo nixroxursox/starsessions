@@ -13,9 +13,8 @@ from starlette.middleware import Middleware
 from starlette.requests import Request
 from starlette.responses import HTMLResponse, RedirectResponse, Response
 from starlette.routing import Route
-
-from starsessions import CookieStore, SessionAutoloadMiddleware, SessionMiddleware
 from starsessions.session import regenerate_session_id
+import starsessions
 
 
 async def homepage(request: Request) -> Response:
@@ -68,7 +67,7 @@ routes = [
     Route("/profile", endpoint=profile),
 ]
 middleware = [
-    Middleware(SessionMiddleware, store=CookieStore(secret_key="secret"), cookie_https_only=False),
+    Middleware(SessionMiddleware, store=CookieStore(secret_key=config('IMIA_SECRET_KEY')), cookie_https_only=False),
     Middleware(SessionAutoloadMiddleware),
 ]
 app = Starlette(debug=True, routes=routes, middleware=middleware)
