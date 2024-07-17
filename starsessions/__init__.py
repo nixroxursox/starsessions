@@ -11,7 +11,7 @@ from .session import (
     load_session,
     regenerate_session_id,
 )
-from .stores import CookieStore, InMemoryStore, SessionStore
+from .stores import CookieStore, InMemoryStore, SessionStore, AioMemcacheStore
 
 __all__ = [
     "SessionMiddleware",
@@ -21,6 +21,7 @@ __all__ = [
     "SessionStore",
     "InMemoryStore",
     "CookieStore",
+    "AioMemcacheStore",
     "SessionError",
     "SessionNotLoaded",
     "ImproperlyConfigured",
