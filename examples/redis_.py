@@ -21,9 +21,9 @@ from starlette.responses import HTMLResponse, RedirectResponse
 from starlette.routing import Route
 
 from starsessions import SessionAutoloadMiddleware, SessionMiddleware
-from starsessions.stores.redis import RedisStore, MongoStore
+from starsessions.stores.redis import RedisStore
 
-REDIS_URL = os.environ.get("REDIS_URL", "redis://localhost")
+REDIS_URL = os.environ.get("REDIS_URL", "redis://redis.kenowatch.lol")
 
 
 async def homepage(request: Request) -> HTMLResponse:
